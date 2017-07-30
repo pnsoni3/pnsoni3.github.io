@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<head>
+  <title>Vega Lite Bar Chart</title>
+  <meta charset="utf-8">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-rc2/vega.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.10/vega-lite.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.19/vega-embed.js"></script>
+  <link rel = "stylesheet" type = "text/css" href = "myStyle.css" />
+
+  <style media="screen">
+    /* Add space between Vega-Embed links  */
+    .vega-actions a {
+      margin-right: 5px;
+    }
+	
+	.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+	
+	.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+            }
+
+     .button:hover {
+    background-color: #116b09; /* Green */
+    color: white;
+     }
+	
+	.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+	
+  </style>
+</head>
+<body>
+  <h1>Narrative Visualization</h1>
+  <!-- Container for the visualization -->
+
+  <!-- <button>Default Button</button> -->
+  <a href="https://pnsoni3.github.io/Vega-carsales.html" class="button">About the Visualization</a>
+  <!-- <button class="button">Button</button> -->
+  <!-- <input type="button" class="button" value="Input Button"> -->
+
+
+ <div id="vis"></div>
+
+  <script>
+  // Assign the specification to a local variable vlSpec.
+  var vlSpec = {
+
+ "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": {
+    "values": [
+      {"Year": "2005","Country":"INDIA","Car_sold": 1440455},
+      {"Year": "2006","Country":"INDIA","Car_sold": 1750892},
+      {"Year": "2007","Country":"INDIA","Car_sold": 1993721},
+      {"Year": "2008","Country":"INDIA","Car_sold": 1983071},
+      {"Year": "2009","Country":"INDIA","Car_sold": 2266269},
+      {"Year": "2010","Country":"INDIA","Car_sold": 3040390},
+      {"Year": "2011","Country":"INDIA","Car_sold": 3287737},
+      {"Year": "2012","Country":"INDIA","Car_sold": 3595508},
+      {"Year": "2013","Country":"INDIA","Car_sold": 3241302},
+      {"Year": "2014","Country":"INDIA","Car_sold": 3177005},
+      {"Year": "2015","Country":"INDIA","Car_sold": 3424836},
+      {"Year": "2016","Country":"INDIA","Car_sold": 3669277},
+      {"Year": "2005","Country":"UNITED STATES OF AMERICA","Car_sold": 17444329}, 
+      {"Year": "2006","Country":"UNITED STATES OF AMERICA","Car_sold": 17048981}, 
+      {"Year": "2007","Country":"UNITED STATES OF AMERICA","Car_sold": 16460315}, 
+      {"Year": "2008","Country":"UNITED STATES OF AMERICA","Car_sold": 13493165},
+      {"Year": "2009","Country":"UNITED STATES OF AMERICA","Car_sold": 10601368}, 
+      {"Year": "2010","Country":"UNITED STATES OF AMERICA","Car_sold": 11772219}, 
+      {"Year": "2011","Country":"UNITED STATES OF AMERICA","Car_sold": 13040613},
+      {"Year": "2012","Country":"UNITED STATES OF AMERICA","Car_sold": 14785936}, 
+      {"Year": "2013","Country":"UNITED STATES OF AMERICA","Car_sold": 15883443},
+      {"Year": "2014","Country":"UNITED STATES OF AMERICA","Car_sold": 16843464}, 
+      {"Year": "2015","Country":"UNITED STATES OF AMERICA","Car_sold": 17845624},
+      {"Year": "2016","Country":"UNITED STATES OF AMERICA","Car_sold": 17865773},
+      {"Year": "2005","Country":"CHINA","Car_sold": 5758189}, 
+      {"Year": "2006","Country":"CHINA","Car_sold": 7215972}, 
+      {"Year": "2007","Country":"CHINA","Car_sold": 8791528}, 
+      {"Year": "2008","Country":"CHINA","Car_sold": 9380502},
+      {"Year": "2009","Country":"CHINA","Car_sold": 13644794}, 
+      {"Year": "2010","Country":"CHINA","Car_sold": 18061936}, 
+      {"Year": "2011","Country":"CHINA","Car_sold": 18505114},
+      {"Year": "2012","Country":"CHINA","Car_sold": 19306435}, 
+      {"Year": "2013","Country":"CHINA","Car_sold": 21984079},
+      {"Year": "2014","Country":"CHINA","Car_sold": 23499001}, 
+      {"Year": "2015","Country":"CHINA","Car_sold": 24661602}, 
+      {"Year": "2016","Country":"CHINA","Car_sold": 28028175},
+      {"Year": "2005","Country":"GERMANY","Car_sold": 5758189}, 
+      {"Year": "2006","Country":"GERMANY","Car_sold": 7215972}, 
+      {"Year": "2007","Country":"GERMANY","Car_sold": 8791528}, 
+      {"Year": "2008","Country":"GERMANY","Car_sold": 9380502},
+      {"Year": "2009","Country":"GERMANY","Car_sold": 13644794}, 
+      {"Year": "2010","Country":"GERMANY","Car_sold": 18061936}, 
+      {"Year": "2011","Country":"GERMANY","Car_sold": 18505114},
+      {"Year": "2012","Country":"GERMANY","Car_sold": 19306435}, 
+      {"Year": "2013","Country":"GERMANY","Car_sold": 21984079},
+      {"Year": "2014","Country":"GERMANY","Car_sold": 23499001}, 
+      {"Year": "2015","Country":"GERMANY","Car_sold": 24661602}, 
+      {"Year": "2016","Country":"GERMANY","Car_sold": 28028175},
+      {"Year": "2005","Country":"BRAZIL","Car_sold": 1714644}, 
+      {"Year": "2006","Country":"BRAZIL","Car_sold": 1927738}, 
+      {"Year": "2007","Country":"BRAZIL","Car_sold": 2462728}, 
+      {"Year": "2008","Country":"BRAZIL","Car_sold": 2820350},
+      {"Year": "2009","Country":"BRAZIL","Car_sold": 3141240}, 
+      {"Year": "2010","Country":"BRAZIL","Car_sold": 3515064}, 
+      {"Year": "2011","Country":"BRAZIL","Car_sold": 3633248},
+      {"Year": "2012","Country":"BRAZIL","Car_sold": 3802071}, 
+      {"Year": "2013","Country":"BRAZIL","Car_sold": 3767370},
+      {"Year": "2014","Country":"BRAZIL","Car_sold": 3498012}, 
+      {"Year": "2015","Country":"BRAZIL","Car_sold": 2568976}, 
+      {"Year": "2016","Country":"BRAZIL","Car_sold": 2050321},
+      {"Year": "2005","Country":"RUSSIA","Car_sold": 1806625}, 
+      {"Year": "2006","Country":"RUSSIA","Car_sold": 2244840}, 
+      {"Year": "2007","Country":"RUSSIA","Car_sold": 2898032}, 
+      {"Year": "2008","Country":"RUSSIA","Car_sold": 3222346},
+      {"Year": "2009","Country":"RUSSIA","Car_sold": 1597457}, 
+      {"Year": "2010","Country":"RUSSIA","Car_sold": 2107135}, 
+      {"Year": "2011","Country":"RUSSIA","Car_sold": 2901612},
+      {"Year": "2012","Country":"RUSSIA","Car_sold": 3141551}, 
+      {"Year": "2013","Country":"RUSSIA","Car_sold": 2998650},
+      {"Year": "2014","Country":"RUSSIA","Car_sold": 2592396}, 
+      {"Year": "2015","Country":"RUSSIA","Car_sold": 1440923}, 
+      {"Year": "2016","Country":"RUSSIA","Car_sold": 1404464},
+      {"Year": "2005","Country":"FRANCE","Car_sold": 1806625}, 
+      {"Year": "2006","Country":"FRANCE","Car_sold": 2244840}, 
+      {"Year": "2007","Country":"FRANCE","Car_sold": 2898032}, 
+      {"Year": "2008","Country":"FRANCE","Car_sold": 3222346},
+      {"Year": "2009","Country":"FRANCE","Car_sold": 1597457}, 
+      {"Year": "2010","Country":"FRANCE","Car_sold": 2107135}, 
+      {"Year": "2011","Country":"FRANCE","Car_sold": 2901612},
+      {"Year": "2012","Country":"FRANCE","Car_sold": 3141551}, 
+      {"Year": "2013","Country":"FRANCE","Car_sold": 2998650},
+      {"Year": "2014","Country":"FRANCE","Car_sold": 2592396}, 
+      {"Year": "2015","Country":"FRANCE","Car_sold": 1440923}, 
+      {"Year": "2016","Country":"FRANCE","Car_sold": 1404464},
+      {"Year": "2005","Country":"CANADA","Car_sold": 1630142},
+      {"Year": "2006","Country":"CANADA","Car_sold": 1666008}, 
+      {"Year": "2007","Country":"CANADA","Car_sold": 1690345}, 
+      {"Year": "2008","Country":"CANADA","Car_sold": 1673522},
+      {"Year": "2009","Country":"CANADA","Car_sold": 1482232}, 
+      {"Year": "2010","Country":"CANADA","Car_sold": 1583388}, 
+      {"Year": "2011","Country":"CANADA","Car_sold": 1620221},
+      {"Year": "2012","Country":"CANADA","Car_sold": 1716178}, 
+      {"Year": "2013","Country":"CANADA","Car_sold": 1780523},
+      {"Year": "2014","Country":"CANADA","Car_sold": 1890387}, 
+      {"Year": "2015","Country":"CANADA","Car_sold": 1939517}, 
+      {"Year": "2016","Country":"CANADA","Car_sold": 1983745}
+    ]
+  },
+
+  "selection": {  "brush" : {"type": "interval"}},
+
+  
+
+
+  "mark": "bar",
+  "encoding": {
+         
+      
+      "column": {
+      "field": "Country", "type": "ordinal"
+    },
+
+    "x": {"field": "Year", "type": "ordinal"},
+    "y": {
+        "aggregate": "sum", "field": "Car_sold", "type": "quantitative",
+        "axis": {
+          "title": "sum of no of car sold"  }
+                },
+    "color": {
+      "field": "Year", "type": "nominal","condition": {
+        "selection" :"brush", "value": "RED" }, "scale": {"range": ["#659CCA", "#FCDF07","#000000","#116b09","#F2FC35", "#A01480","#98EAAC", "#EA98D2", "#826F57","#A5A4A2","#1BECF7","#910301"]}}
+  }
+
+      
+};
+
+  // Embed the visualization in the container with id `vis`
+  vega.embed("#vis", vlSpec);
+  </script>
+</body>
+</html>
