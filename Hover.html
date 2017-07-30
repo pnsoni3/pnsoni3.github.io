@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<script src=“https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.3/vega-lite.min.js“></script>
+<script src=“https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-beta.31/vega.min.js”></script>
+<script src=“https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.14/vega-embed.min.js”></script>
+<link rel=“stylesheet” type=“text/css” href=“https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.3.3/vega-tooltip.min.css”></link>
+<script src=“https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.3.3/vega-tooltip.min.js”></script>
+<script src="https://vega.github.io/vega-embed/vega-embed.min.js“></script>
+
+<style> .vega-actions a{margin-left:5px;} </style>
+
+<body>
+
+<div id="vis"></div>
+
+<script>
+var spec = {
+	"$schema":"https://vega.github.io/schema/vega/v3.0.json",
+	"width":400,
+	"height":200,
+	"padding":5,
+	
+	"data":[{"name":"lost","values":[{"i":1,"d":4},{"i":2,"d":8},
+		{"i":3,"d":15}, {"i":4,"d":16},{"i":5,"d":23},{"i":6,"d":42}]}], 
+   
+	
+	"scales":[{
+		"name" : "xscale",
+		"type" : "band",
+		"range": "width",
+		"domain":{"data" : "lost", "field": "i"}
+	},{
+		"name":"yscale",
+		"type":"linear",
+		"range":"height",
+		"domain":{"data":"lost","field" "d"},
+		"zero" :true,
+		"nice":true
+	}	
+	],
+	
+	"axes":[{"orient":"bottom","scale":"xscale"},
+			{"orient":"left","scale":"yscale"],
+	
+	"signals":[{
+			"name":"tooltip",
+			"value":{},
+			"on":[
+				{"events": "rect:mouseover", "update":"datum"},
+				{"events": "rect:mouseout", "update":"{}"},
+			     ]
+			}],
+
+	"marks":[{
+		"type":"rect",
+		"from":{"data":"lost"},
+		"encode":{
+			"enter":{
+				"x": {"scale":"xscale","field":"i","offset":1},
+				"width": {"scale":"xscale","band":1,"offset":-1},
+				"y": {"scale":"yscale","field":"d"},
+				"y2": {"scale":"yscale","field":0}				
+
+					},
+			"update":{"fill":{"value":"steelblue"}},
+			"hover":{"fill":{"value":"orange"}}
+				}
+	},	{
+	
+		"type":"text",
+		"encode":{
+			"enter" :{
+				"align":{"value":"center"},
+				"baseline":{"value":"bottom"},
+				"fill":{"value":"#333"}
+		},
+		"update" :{
+			"x":{"scale":"xscale","signal":"tooltip.i","band":0.5},
+			"y":{"scale":"yscale","signal":"tooltip.d","band":-2},
+			"text":{"signal":"tooltip.d"}
+				}		
+					
+				}
+	
+		}
+	
+	]
+};
+
+vega.embed("#vis", spec);
+</script>
+</body>
+</html>
