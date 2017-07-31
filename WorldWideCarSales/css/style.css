@@ -25,6 +25,10 @@ html,body {
     display: block;
 }
 
+.post-masonry {
+	padding-top:60px;
+}
+
 /* Typography
 ------------------------------------- */
 h1,h2,h3,h4,h5 {
