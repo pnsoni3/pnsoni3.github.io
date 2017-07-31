@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+  <title>Vega Lite Bar Chart for Tier 4 Car Sales 2016</title>
+  <meta charset="utf-8">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-rc2/vega.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.10/vega-lite.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.19/vega-embed.js"></script>
+ 
+  <style media="screen">
+    /* Add space between Vega-Embed links  */
+ 	
+  </style>
+</head>
+<body>
+  <h1>Narrative Visualization</h1>
+  <!-- Container for the visualization -->
+
+
+ <div id="vis"></div>
+
+  <script>
+  // Assign the specification to a local variable vlSpec.
+  var vlSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "values": [
+      {"Country":"LIBERIA","Car_sold": 600},
+{"Country":"BELIZE","Car_sold": 900},
+{"Country":"BURUNDI","Car_sold": 1100},
+{"Country":"MADAGASCAR","Car_sold": 1400},
+{"Country":"MONGOLIA","Car_sold": 1700},
+{"Country":"KIRGHIZISTAN","Car_sold": 2000},
+{"Country":"ZIMBABWE","Car_sold": 2200},
+{"Country":"BURKINA","Car_sold": 2300},
+{"Country":"CONGO KINSHASA","Car_sold": 2300},
+{"Country":"MYANMAR","Car_sold": 2300},
+{"Country":"TADJIKISTAN","Car_sold": 2300},
+{"Country":"VENEZUELA","Car_sold": 2500},
+{"Country":"ARMENIA","Car_sold": 2700},
+{"Country":"ALBANIA","Car_sold": 2750},
+{"Country":"GABON","Car_sold": 3000},
+{"Country":"ZAMBIA","Car_sold": 3200},
+{"Country":"BAHAMAS","Car_sold": 3300},
+{"Country":"SUDAN","Car_sold": 3400},
+{"Country":"YEMEN","Car_sold": 3600},
+{"Country":"TAHITI","Car_sold": 3800},
+{"Country":"MALAWI","Car_sold": 3900},
+{"Country":"UGANDA","Car_sold": 4000},
+{"Country":"AZERBAIDJAN","Car_sold": 4200},
+{"Country":"CAMEROON","Car_sold": 4200},
+{"Country":"GEORGIA","Car_sold": 4300},
+{"Country":"MACEDONIA","Car_sold": 4300},
+{"Country":"MOLDAVIA","Car_sold": 4500},
+{"Country":"TANZANIA","Car_sold": 4500},
+{"Country":"TUKMENISTAN","Car_sold": 5000},
+{"Country":"JAMAICA","Car_sold": 5100},
+{"Country":"GUYANA","Car_sold": 5885},
+{"Country":"CAMBODGE","Car_sold": 6300},
+{"Country":"IVORY COAST","Car_sold": 6400},
+{"Country":"SENEGAL","Car_sold": 6600},
+{"Country":"CUBA","Car_sold": 6900},
+{"Country":"ANGOLA","Car_sold": 7300},
+{"Country":"GHANA","Car_sold": 7400},
+{"Country":"BOTSWANA","Car_sold": 8100},
+{"Country":"MALTA","Car_sold": 8157},
+{"Country":"NEW CALEDONIA","Car_sold": 9279},
+{"Country":"NEPAL","Car_sold": 9300},
+{"Country":"BOSNIA","Car_sold": 10200},
+{"Country":"HONDURAS","Car_sold": 10200},
+{"Country":"EL SALVADOR","Car_sold": 10600},
+{"Country":"KENYA","Car_sold": 10600},
+{"Country":"LAOS","Car_sold": 10900},
+{"Country":"MAURITIUS","Car_sold": 11000},
+{"Country":"NICARAGUA","Car_sold": 12700},
+{"Country":"CYPRUS","Car_sold": 14559},
+{"Country":"BRUNEI","Car_sold": 16200},
+{"Country":"MARTINIQUE","Car_sold": 16495},
+{"Country":"GUADELOUPE","Car_sold": 16571},
+{"Country":"TRINIDAD","Car_sold": 20200},
+{"Country":"LATVIA","Car_sold": 20345},
+{"Country":"JORDAN","Car_sold": 20500},
+{"Country":"ICELAND","Car_sold": 20735},
+{"Country":"BELARUS","Car_sold": 22500},
+{"Country":"PARAGUAY","Car_sold": 22700},
+{"Country":"NIGERIA","Car_sold": 23000},
+{"Country":"DOMINICAN REPUBLIC","Car_sold": 24024},
+{"Country":"IRAK","Car_sold": 24800},
+{"Country":"ESTONIA","Car_sold": 27401},
+{"Country":"SERBIA","Car_sold": 27600},
+{"Country":"BOLIVIA","Car_sold": 27800},
+{"Country":"LITHUANIA","Car_sold": 29380},
+{"Country":"REUNION","Car_sold": 29547},
+{"Country":"GUATEMALA","Car_sold": 29900},
+{"Country":"BULGARIA1","Car_sold": 31260},
+{"Country":"SRI LANKA","Car_sold": 34900},
+{"Country":"PALESTINE","Car_sold": 35800},
+{"Country":"LEBANON","Car_sold": 37800},
+{"Country":"SYRIA","Car_sold": 39700},
+{"Country":"BANGLADESH","Car_sold": 44400},
+{"Country":"HONG-KONG","Car_sold": 46200},
+{"Country":"BAHRAIN","Car_sold": 46300},
+{"Country":"LIBYA","Car_sold": 46400},
+{"Country":"KAZAKHSTAN","Car_sold": 46712},
+{"Country":"URUGUAY","Car_sold": 47114},
+{"Country":"TUNISIA","Car_sold": 50800},
+{"Country":"CROATIA","Car_sold": 53929},
+{"Country":"UZBEKISTAN","Car_sold": 56300},
+{"Country":"LUXEMBOURG","Car_sold": 56369},
+{"Country":"PANAMA","Car_sold": 57700},
+{"Country":"COSTA RICA","Car_sold": 60000},
+{"Country":"ECUADOR","Car_sold": 63555},
+{"Country":"QATAR","Car_sold": 63700},
+{"Country":"UKRAINE","Car_sold": 75209},
+{"Country":"SLOVENIA","Car_sold": 76213},
+{"Country":"GREECE","Car_sold": 85008},
+{"Country":"ALGERIA","Car_sold": 96600},
+{"Country":"SLOVAKIA","Car_sold": 100600},
+{"Country":"KUWAIT","Car_sold": 108000},
+{"Country":"SINGAPORE","Car_sold": 108061},
+{"Country":"PUERTO RICO","Car_sold": 112200},
+{"Country":"HUNGARY","Car_sold": 123807},
+{"Country":"FINLAND","Car_sold": 136430},
+{"Country":"ROMANIA","Car_sold": 142020},
+{"Country":"NEW ZEALAND","Car_sold": 146753},
+{"Country":"OMAN","Car_sold": 154900},
+{"Country":"MOROCCO","Car_sold": 163110},
+{"Country":"PERU","Car_sold": 169718},
+{"Country":"IRELAND","Car_sold": 177719},
+{"Country":"NORWAY","Car_sold": 197991},
+{"Country":"UNITED ARAB EMIRATES","Car_sold": 198500},
+{"Country":"PAKISTAN","Car_sold": 211295},
+{"Country":"COLOMBIA","Car_sold": 246500},
+{"Country":"PORTUGAL","Car_sold": 247343},
+{"Country":"TAIWAN","Car_sold": 262346},
+{"Country":"EGYPT","Car_sold": 264100},
+{"Country":"DENMARK","Car_sold": 265386},
+{"Country":"VIETNAM","Car_sold": 271833},
+{"Country":"CZECH REPUBLIC","Car_sold": 291008},
+{"Country":"ISRAEL","Car_sold": 292700}
+
+    ]
+  },
+
+  "selection": {  "brush" : {"type": "interval"}},
+
+  "mark": "rect",
+  "encoding": {
+    "x": {"field": "Country", "type": "ordinal"},
+    "y": {
+        "aggregate": "sum", "field": "Car_sold", "type": "quantitative",
+        "axis": {
+          "title": "Number of car sold 2016",
+          "labelPadding": -70,
+            "offset": 70    
+       }
+},
+  
+  "color": {
+      "condition": {
+        "selection": "brush",
+        "value": "#3366cc"
+      },
+      "value": "gray"
+    }
+  
+  }
+
+};
+
+  // Embed the visualization in the container with id `vis`
+  vega.embed("#vis", vlSpec);
+  </script>
+</body>
+</html>
