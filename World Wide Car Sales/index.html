@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<title>World Wide Car Sales</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+<!--
+
+Template 2077 Modern Town
+
+http://www.tooplate.com/view/2077-modern-town
+
+-->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+   	<link rel="stylesheet" href="css/owl.theme.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-rc2/vega.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.10/vega-lite.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.19/vega-embed.js"></script>
+	
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+
+<!-- Home section
+================================================== -->
+<section id="home" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12 col-sm-12">
+				<h3 class="wow fadeInDown" data-wow-delay="0.2s">FULLY RESPONSIVE</h3>
+				<h1 class="wow fadeInDown">World Wide Car Sales</h1>
+				<a href="#blog" class="btn btn-default smoothScroll wow fadeInUp" data-wow-delay="0.15s">ABOUT THIS VISUALIZATION</a>
+				<a href="#about" class="btn btn-default smoothScroll wow fadeInUp" data-wow-delay="0.15s">LEARN MORE</a>
+			</div>
+
+		</div>
+	</div>		
+</section>
+
+
+<!-- Navigation section
+================================================== -->
+<section class="navbar navbar-default navbar-fixed-top sticky-navigation" role="navigation">
+	<div class="container">
+
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand">WORLD WIDE CAR SALES</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right main-navigation">
+				<li><a href="#home" class="smoothScroll">HOME</a></li>
+				<li><a href="#about" class="smoothScroll">AN OVERVIEW</a></li>
+				<li><a href="#about1" class="smoothScroll">YEAR OVER YEAR TREND</a></li>
+                <li><a href="#testimonial" class="smoothScroll">RESEARCH</a></li>
+				<li><a href="#blog" class="smoothScroll">ABOUT THIS VISUALIZATION</a></li>
+				<li><a href="#contact" class="smoothScroll">RESOURCES</a></li>
+			</ul>
+		</div>
+
+	</div>
+</section>
+
+
+<!-- about section
+================================================== -->
+<section id="about" class="paralla-section">
+	<div class="container">
+		<div class="row">
+        
+			<div class="post-masonry col-md-7 col-sm-12">
+				
+				<!--<img src="images/about-img-2.jpg" class="img-responsive" alt="about img 2"> -->
+				<div id="vis1"></div>
+				<script>
+  // Assign the specification to a local variable vlSpec.
+				var v1Spec = {
+
+										 "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+						  "data": {
+													"values": [
+													{"Country":"INDIA","Car_sold": 3669277},
+									  {"Country":"RUSSIA","Car_sold": 1404464},
+									  {"Country":"ITALY","Car_sold": 2050292},
+									  {"Country":"BRAZIL","Car_sold": 2050321},
+									  {"Country":"FRANCE","Car_sold": 2478472},
+									  {"Country":"UNITED KINGDOM","Car_sold": 3123755},
+									  {"Country":"GERMANY","Car_sold": 3708867},
+									  {"Country":"JAPAN","Car_sold": 4970260},
+									  {"Country":"SOUTH KOREA","Car_sold": 1823041},
+									  {"Country":"CANADA","Car_sold": 1983745},
+									  {"Country":"CHILE","Car_sold": 319606},
+									  {"Country":"SWITZERLAND (+FL)","Car_sold": 355882},
+									  {"Country":"PHILIPPINES","Car_sold": 359572},
+									  {"Country":"AUSTRIA","Car_sold": 374545},
+									  {"Country":"SWEDEN","Car_sold": 431818},
+									  {"Country":"NETHERLANDS","Car_sold": 469410},
+									  {"Country":"POLAND","Car_sold": 504550},
+									  {"Country":"SOUTH AFRICA","Car_sold": 547406},
+									  {"Country":"MALAYSIA","Car_sold": 580124},
+									  {"Country":"BELGIUM","Car_sold": 617854},
+									  {"Country":"SAUDI ARABIA","Car_sold": 655500},
+									  {"Country":"ARGENTINA","Car_sold": 709482},
+									  {"Country":"THAILAND","Car_sold": 768788},
+									  {"Country":"TURKEY","Car_sold": 1007857},
+									  {"Country":"INDONESIA","Car_sold": 1048134},
+									  {"Country":"AUSTRALIA","Car_sold": 1178133},
+									  {"Country":"IRAN","Car_sold": 1448500},
+									  {"Country":"MEXICO2","Car_sold": 1647723},
+									  {"Country":"SPAIN","Car_sold": 1347344}
+														]
+														  },
+						  "vconcat": [{
+							"width": 480,
+							"mark": "area",
+							"encoding": {
+							  "x": {
+								"field": "Country",
+								"type": "nominal",
+								"scale": {"domain": {"selection": "brush"}},
+								"axis": {"title": "", "labelAngle": 270 }
+							  },
+							  "y": {"field": "Car_sold","type": "quantitative", "axis":{"labelPadding": -60, "offset": 60} }
+							  
+							}
+						  }, {
+							"width": 480,
+							"height": 60,
+							"mark": "area",
+							"selection": {
+							  "brush": {"type": "interval", "encodings": ["x"]}
+							},
+							"encoding": {
+							  "x": {
+								"field": "Country",
+								"type": "nominal",
+								"axis": {"format": "%Y", "labelAngle": 270}
+							  },
+							  "y": {
+								"field": "Car_sold",
+								"type": "quantitative",
+								"axis": {"tickCount": 3, "grid": false,"labelPadding": -60, "offset": 60 }
+							  }
+							}
+						  }]
+
+									  
+								};
+
+								  // Embed the visualization in the container with id `vis`
+								  vega.embed("#vis1", v1Spec);
+								  </script>
+			</div>
+            
+			<div class="col-md-5 col-sm-12">
+				<div class="about-des">
+					<h4>An Overview  </h4>
+					<h3>2016 world wide car sales (except China and USA)</h3>
+					<h4>Filter and Conquer</h4>
+					<p>Lets start by clicking "An Overview" link on header. Please note the color for link is changed to orange. This chart provides interactive visualization for world wide car sales in year 2016. For more focus on 2nd tier market, USA and CHINA are not part of this graph. There will be seperate chart for Tier 1 market. This graph mainly shows tier 2 countries for car sales data. Reader can take control of view, change the data by selecting multiple country area and continue research in car sales</p>
+					<h4>What can you do?</h4>
+					<p>Reader can select and compair the sales between 2 or more countries by selecting the area in lower graph which will interactively continue and change the upper graph at more detail and granular level and continue the sales research.</p>
+				</div>
+			</div>
+
+		</div>
+    </div>    
+</section>  
+
+<section id="about1" class="paralla-section">
+	<div class="container">
+
+
+      <div class="row">
+			
+			<div class="col-md-6 col-sm-12">
+				<div class="about-des">
+					<h4>Going to the NEXT Level</h4>
+					<h3>Year over Year car sales trend for Tier 1 market (CHINA and USA)</h3>
+					<p>The interesting fact is, Car industry suffered a lot in the period of 2008 - 2009 however during this hard time as well China and some other countries had very good car sales.</p>
+					<h4>What can you do?</h4>
+					<p>Select the bar, the selection will highlight the same year between 2 countries to compaire. At the same time for better interactive visualition, each year is highlited with different color. </p> 
+				</div>
+			</div>
+            
+            <div class="col-md-6 col-sm-12">
+				
+								<div id="vis"></div>
+				<script>
+  // Assign the specification to a local variable vlSpec.
+				var vlSpec = {
+
+				"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+				"data": {
+					"values": [
+							{"Year": "2005","Country":"UNITED STATES OF AMERICA","Car_sold": 17444329}, 
+						  {"Year": "2006","Country":"UNITED STATES OF AMERICA","Car_sold": 17048981}, 
+						  {"Year": "2007","Country":"UNITED STATES OF AMERICA","Car_sold": 16460315}, 
+						  {"Year": "2008","Country":"UNITED STATES OF AMERICA","Car_sold": 13493165},
+						  {"Year": "2009","Country":"UNITED STATES OF AMERICA","Car_sold": 10601368}, 
+						  {"Year": "2010","Country":"UNITED STATES OF AMERICA","Car_sold": 11772219}, 
+						  {"Year": "2011","Country":"UNITED STATES OF AMERICA","Car_sold": 13040613},
+						  {"Year": "2012","Country":"UNITED STATES OF AMERICA","Car_sold": 14785936}, 
+						  {"Year": "2013","Country":"UNITED STATES OF AMERICA","Car_sold": 15883443},
+						  {"Year": "2014","Country":"UNITED STATES OF AMERICA","Car_sold": 16843464}, 
+						  {"Year": "2015","Country":"UNITED STATES OF AMERICA","Car_sold": 17845624},
+						  {"Year": "2016","Country":"UNITED STATES OF AMERICA","Car_sold": 17865773},
+						  {"Year": "2005","Country":"CHINA","Car_sold": 5758189}, 
+						  {"Year": "2006","Country":"CHINA","Car_sold": 7215972}, 
+						  {"Year": "2007","Country":"CHINA","Car_sold": 8791528}, 
+						  {"Year": "2008","Country":"CHINA","Car_sold": 9380502},
+						  {"Year": "2009","Country":"CHINA","Car_sold": 13644794}, 
+						  {"Year": "2010","Country":"CHINA","Car_sold": 18061936}, 
+						  {"Year": "2011","Country":"CHINA","Car_sold": 18505114},
+						  {"Year": "2012","Country":"CHINA","Car_sold": 19306435}, 
+						  {"Year": "2013","Country":"CHINA","Car_sold": 21984079},
+						  {"Year": "2014","Country":"CHINA","Car_sold": 23499001}, 
+						  {"Year": "2015","Country":"CHINA","Car_sold": 24661602}, 
+						  {"Year": "2016","Country":"CHINA","Car_sold": 28028175}
+									]
+								  },
+
+								  "selection": {  "brush" : {"type": "interval"}},
+
+								  
+
+
+								  "mark": "bar",
+								  "encoding": {
+										 
+									  
+									  "column": {
+									  "field": "Country", "type": "ordinal"
+									},
+
+									"x": {"field": "Year", "type": "ordinal"},
+									"y": {
+										"aggregate": "sum", "field": "Car_sold", "type": "quantitative",
+										"axis": {
+										  "title": "sum of no of car sold" ,"labelPadding": -70, "offset": 90, "position":10 }
+												},
+									 "color": {"field": "Year", "type": "nominal",
+									  "condition": {
+										"selection": "brush",
+										"value": "red"
+									  },
+									  "value": "gray"
+									}
+
+								   }
+
+									  
+								};
+
+								  // Embed the visualization in the container with id `vis`
+								  vega.embed("#vis", vlSpec);
+								  </script>
+				
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<!-- Testimonial section
+================================================== -->
+<section id="testimonial" class="parallax-section">
+	<div class="container">
+		<div class="row">
+
+			<!-- Service Owl Carousel section
+			================================================== -->
+			<div id="owl-testimonial" class="owl-carousel">
+
+				<div class="item">
+					<div class="row">
+						<div class="col-md-offset-2 col-md-8">
+							<!--<img src="images/testimonial-img-1.jpg" class="img-responsive img-circle" alt="testimonial img"> -->
+							<div id="vis2"></div>
+							<script>
+  // Assign the specification to a local variable vlSpec.
+							var v2Spec = {
+
+							"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+						"data": {
+							"values": [
+							{"Year": "2005","Country":"UNITED STATES OF AMERICA","Car_sold": 17444329}, 
+						  {"Year": "2006","Country":"UNITED STATES OF AMERICA","Car_sold": 17048981}, 
+						  {"Year": "2007","Country":"UNITED STATES OF AMERICA","Car_sold": 16460315}, 
+						  {"Year": "2008","Country":"UNITED STATES OF AMERICA","Car_sold": 13493165},
+						  {"Year": "2009","Country":"UNITED STATES OF AMERICA","Car_sold": 10601368}, 
+						  {"Year": "2010","Country":"UNITED STATES OF AMERICA","Car_sold": 11772219}, 
+						  {"Year": "2011","Country":"UNITED STATES OF AMERICA","Car_sold": 13040613},
+						  {"Year": "2012","Country":"UNITED STATES OF AMERICA","Car_sold": 14785936}, 
+						  {"Year": "2013","Country":"UNITED STATES OF AMERICA","Car_sold": 15883443},
+						  {"Year": "2014","Country":"UNITED STATES OF AMERICA","Car_sold": 16843464}, 
+						  {"Year": "2015","Country":"UNITED STATES OF AMERICA","Car_sold": 17845624},
+						  {"Year": "2016","Country":"UNITED STATES OF AMERICA","Car_sold": 17865773},
+						  {"Year": "2005","Country":"CHINA","Car_sold": 5758189}, 
+						  {"Year": "2006","Country":"CHINA","Car_sold": 7215972}, 
+						  {"Year": "2007","Country":"CHINA","Car_sold": 8791528}, 
+						  {"Year": "2008","Country":"CHINA","Car_sold": 9380502},
+						  {"Year": "2009","Country":"CHINA","Car_sold": 13644794}, 
+						  {"Year": "2010","Country":"CHINA","Car_sold": 18061936}, 
+						  {"Year": "2011","Country":"CHINA","Car_sold": 18505114},
+						  {"Year": "2012","Country":"CHINA","Car_sold": 19306435}, 
+						  {"Year": "2013","Country":"CHINA","Car_sold": 21984079},
+						  {"Year": "2014","Country":"CHINA","Car_sold": 23499001}, 
+						  {"Year": "2015","Country":"CHINA","Car_sold": 24661602}, 
+						  {"Year": "2016","Country":"CHINA","Car_sold": 28028175}
+									]
+								  },
+
+								  "selection": {  "brush" : {"type": "interval"}},
+
+								  
+
+
+								  "mark": "bar",
+								  "encoding": {
+										 
+									  
+									  "column": {
+									  "field": "Country", "type": "ordinal"
+									},
+
+									"x": {"field": "Year", "type": "ordinal"},
+									"y": {
+										"aggregate": "sum", "field": "Car_sold", "type": "quantitative",
+										"axis": {
+										  "title": "sum of no of car sold" ,"labelPadding": -70, "offset": 90, "position":10 }
+												},
+									 "color": {
+									  "condition": {
+										"selection": "brush",
+										"value": "red"
+									  },
+									  "value": "gray"
+									}
+
+								   }
+
+									  
+								};
+
+								  // Embed the visualization in the container with id `vis`
+								  vega.embed("#vis2", v2Spec);
+								  </script>
+							<h2>Tier 1 : Market Year Over Year Trend</h2>
+							<p>This visualization provides year over year trend for tier 1 countries..</p><p>The interesting fact is, Car industry suffered a lot in the period of 2008 - 2009 however during this hard time as well China had very good car sales.</p> <p>Select the year bar chart highlight the selection in RED and grayed out remianing years.</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-md-offset-2 col-md-8">
+							<!--<img src="images/testimonial-img-2.jpg" class="img-responsive img-circle" alt="testimonial img"> -->
+							<div id="vis3"></div>
+							<script>
+  // Assign the specification to a local variable vlSpec.
+							var v3Spec = {
+
+							"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+						"data": {
+							"values": [
+							{"Year": "2005","Country":"GERMANY","Car_sold": 3614886}, 
+						  {"Year": "2006","Country":"GERMANY","Car_sold": 3772394}, 
+						  {"Year": "2007","Country":"GERMANY","Car_sold": 3482279}, 
+						  {"Year": "2008","Country":"GERMANY","Car_sold": 3425039},
+						  {"Year": "2009","Country":"GERMANY","Car_sold": 4049353}, 
+						  {"Year": "2010","Country":"GERMANY","Car_sold": 3198416}, 
+						  {"Year": "2011","Country":"GERMANY","Car_sold": 3508454},
+						  {"Year": "2012","Country":"GERMANY","Car_sold": 3394002}, 
+						  {"Year": "2013","Country":"GERMANY","Car_sold": 3257718},
+						  {"Year": "2014","Country":"GERMANY","Car_sold": 3356718}, 
+						  {"Year": "2015","Country":"GERMANY","Car_sold": 3539825},
+						  {"Year": "2016","Country":"GERMANY","Car_sold": 3708867},
+						  {"Year": "2005","Country":"BRAZIL","Car_sold": 1714644}, 
+						  {"Year": "2006","Country":"BRAZIL","Car_sold": 1927738}, 
+						  {"Year": "2007","Country":"BRAZIL","Car_sold": 2462728}, 
+						  {"Year": "2008","Country":"BRAZIL","Car_sold": 2820350},
+						  {"Year": "2009","Country":"BRAZIL","Car_sold": 3141240}, 
+						  {"Year": "2010","Country":"BRAZIL","Car_sold": 3515064}, 
+						  {"Year": "2011","Country":"BRAZIL","Car_sold": 3633248},
+						  {"Year": "2012","Country":"BRAZIL","Car_sold": 3802071}, 
+						  {"Year": "2013","Country":"BRAZIL","Car_sold": 3767370},
+						  {"Year": "2014","Country":"BRAZIL","Car_sold": 3498012}, 
+						  {"Year": "2015","Country":"BRAZIL","Car_sold": 2568976}, 
+						  {"Year": "2016","Country":"BRAZIL","Car_sold": 2050321},
+						  {"Year": "2005","Country":"INDIA","Car_sold": 1440455}, 
+						  {"Year": "2006","Country":"INDIA","Car_sold": 1750892}, 
+						  {"Year": "2007","Country":"INDIA","Car_sold": 1993721}, 
+						  {"Year": "2008","Country":"INDIA","Car_sold": 1983071},
+						  {"Year": "2009","Country":"INDIA","Car_sold": 2266269}, 
+						  {"Year": "2010","Country":"INDIA","Car_sold": 3040390}, 
+						  {"Year": "2011","Country":"INDIA","Car_sold": 3287737},
+						  {"Year": "2012","Country":"INDIA","Car_sold": 3595508}, 
+						  {"Year": "2013","Country":"INDIA","Car_sold": 3241302},
+						  {"Year": "2014","Country":"INDIA","Car_sold": 3177005}, 
+						  {"Year": "2015","Country":"INDIA","Car_sold": 3424836}, 
+						  {"Year": "2016","Country":"INDIA","Car_sold": 3669277}
+									]
+								  },
+
+								  "selection": {  "brush" : {"type": "interval"}},
+
+								  
+
+
+								  "mark": "bar",
+								  "encoding": {
+										 
+									  
+									  "column": {
+									  "field": "Country", "type": "ordinal"
+									},
+
+									"x": {"field": "Year", "type": "ordinal"},
+									"y": {
+										"aggregate": "sum", "field": "Car_sold", "type": "quantitative",
+										"axis": {
+										  "title": "sum of no of car sold" ,"labelPadding": -70, "offset": 90, "position":10 }
+												},
+									 "color": {
+									  "condition": {
+										"selection": "brush",
+										"value": "red"
+									  },
+									  "value": "gray"
+									}
+
+								   }
+
+									  
+								};
+
+								  // Embed the visualization in the container with id `vis`
+								  vega.embed("#vis3", v3Spec);
+								  </script>
+							<h2>Tier 2 : Market Year Over Year Trend</h2>
+							<p>Reader can focus and comapare multiple country sales performance for selected year.</p> <p>Car industry suffered a lot in the period of 2008 - 2009 however Germany has best car sales years as 2009.</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="col-md-offset-2 col-md-8">
+							<!--<img src="images/testimonial-img-3.jpg" class="img-responsive img-circle" alt="testimonial img"> -->
+							<div id="vis4"></div>
+							<script>
+					// Assign the specification to a local variable vlSpec.
+							var v4Spec = {
+
+							"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+						"data": {
+							"values": [
+							{"Year": "2005","Country":"GERMANY","Car_sold": 3614886}, 
+						  {"Year": "2006","Country":"GERMANY","Car_sold": 3772394}, 
+						  {"Year": "2007","Country":"GERMANY","Car_sold": 3482279}, 
+						  {"Year": "2008","Country":"GERMANY","Car_sold": 3425039},
+						  {"Year": "2009","Country":"GERMANY","Car_sold": 4049353}, 
+						  {"Year": "2010","Country":"GERMANY","Car_sold": 3198416}, 
+						  {"Year": "2011","Country":"GERMANY","Car_sold": 3508454},
+						  {"Year": "2012","Country":"GERMANY","Car_sold": 3394002}, 
+						  {"Year": "2013","Country":"GERMANY","Car_sold": 3257718},
+						  {"Year": "2014","Country":"GERMANY","Car_sold": 3356718}, 
+						  {"Year": "2015","Country":"GERMANY","Car_sold": 3539825},
+						  {"Year": "2016","Country":"GERMANY","Car_sold": 3708867},
+						  {"Year": "2005","Country":"BRAZIL","Car_sold": 1714644}, 
+						  {"Year": "2006","Country":"BRAZIL","Car_sold": 1927738}, 
+						  {"Year": "2007","Country":"BRAZIL","Car_sold": 2462728}, 
+						  {"Year": "2008","Country":"BRAZIL","Car_sold": 2820350},
+						  {"Year": "2009","Country":"BRAZIL","Car_sold": 3141240}, 
+						  {"Year": "2010","Country":"BRAZIL","Car_sold": 3515064}, 
+						  {"Year": "2011","Country":"BRAZIL","Car_sold": 3633248},
+						  {"Year": "2012","Country":"BRAZIL","Car_sold": 3802071}, 
+						  {"Year": "2013","Country":"BRAZIL","Car_sold": 3767370},
+						  {"Year": "2014","Country":"BRAZIL","Car_sold": 3498012}, 
+						  {"Year": "2015","Country":"BRAZIL","Car_sold": 2568976}, 
+						  {"Year": "2016","Country":"BRAZIL","Car_sold": 2050321},
+						  {"Year": "2005","Country":"INDIA","Car_sold": 1440455}, 
+						  {"Year": "2006","Country":"INDIA","Car_sold": 1750892}, 
+						  {"Year": "2007","Country":"INDIA","Car_sold": 1993721}, 
+						  {"Year": "2008","Country":"INDIA","Car_sold": 1983071},
+						  {"Year": "2009","Country":"INDIA","Car_sold": 2266269}, 
+						  {"Year": "2010","Country":"INDIA","Car_sold": 3040390}, 
+						  {"Year": "2011","Country":"INDIA","Car_sold": 3287737},
+						  {"Year": "2012","Country":"INDIA","Car_sold": 3595508}, 
+						  {"Year": "2013","Country":"INDIA","Car_sold": 3241302},
+						  {"Year": "2014","Country":"INDIA","Car_sold": 3177005}, 
+						  {"Year": "2015","Country":"INDIA","Car_sold": 3424836}, 
+						  {"Year": "2016","Country":"INDIA","Car_sold": 3669277},
+						  {"Year": "2005","Country":"UNITED STATES OF AMERICA","Car_sold": 17444329}, 
+						  {"Year": "2006","Country":"UNITED STATES OF AMERICA","Car_sold": 17048981}, 
+						  {"Year": "2007","Country":"UNITED STATES OF AMERICA","Car_sold": 16460315}, 
+						  {"Year": "2008","Country":"UNITED STATES OF AMERICA","Car_sold": 13493165},
+						  {"Year": "2009","Country":"UNITED STATES OF AMERICA","Car_sold": 10601368}, 
+						  {"Year": "2010","Country":"UNITED STATES OF AMERICA","Car_sold": 11772219}, 
+						  {"Year": "2011","Country":"UNITED STATES OF AMERICA","Car_sold": 13040613},
+						  {"Year": "2012","Country":"UNITED STATES OF AMERICA","Car_sold": 14785936}, 
+						  {"Year": "2013","Country":"UNITED STATES OF AMERICA","Car_sold": 15883443},
+						  {"Year": "2014","Country":"UNITED STATES OF AMERICA","Car_sold": 16843464}, 
+						  {"Year": "2015","Country":"UNITED STATES OF AMERICA","Car_sold": 17845624},
+						  {"Year": "2016","Country":"UNITED STATES OF AMERICA","Car_sold": 17865773},
+						  {"Year": "2005","Country":"CHINA","Car_sold": 5758189}, 
+						  {"Year": "2006","Country":"CHINA","Car_sold": 7215972}, 
+						  {"Year": "2007","Country":"CHINA","Car_sold": 8791528}, 
+						  {"Year": "2008","Country":"CHINA","Car_sold": 9380502},
+						  {"Year": "2009","Country":"CHINA","Car_sold": 13644794}, 
+						  {"Year": "2010","Country":"CHINA","Car_sold": 18061936}, 
+						  {"Year": "2011","Country":"CHINA","Car_sold": 18505114},
+						  {"Year": "2012","Country":"CHINA","Car_sold": 19306435}, 
+						  {"Year": "2013","Country":"CHINA","Car_sold": 21984079},
+						  {"Year": "2014","Country":"CHINA","Car_sold": 23499001}, 
+						  {"Year": "2015","Country":"CHINA","Car_sold": 24661602}, 
+						  {"Year": "2016","Country":"CHINA","Car_sold": 28028175}
+									]
+								  },
+									  "vconcat": [{
+										"width": 480,
+										"mark": "area",
+										"encoding": {
+										  "x": {
+											"field": "Year",
+											"type": "temporal",
+											"scale": {"domain": {"selection": "brush"}},
+											"axis": {"title": "", "labelAngle": 0 }
+										  },
+										  "y": {"field": "Car_sold","type": "quantitative", "axis":{"labelPadding": -60, "offset": 60} }
+										}
+									  }, {
+										"width": 480,
+										"height": 60,
+										"mark": "area",
+										"selection": {
+										  "brush": {"type": "interval", "encodings": ["x"]}
+										},
+										"encoding": {
+										  "x": {
+											"field": "Year",
+											"type": "temporal",
+											"axis": {"format": "%Y", "labelAngle": 0}
+										  },
+										  "y": {
+											"field": "Car_sold",
+											"type": "quantitative",
+											"axis": {"tickCount": 3, "grid": false,"labelPadding": -60, "offset": 60 }
+										  }
+										}
+									  }]
+									}
+								  // Embed the visualization in the container with id `vis`
+								  vega.embed("#vis4", v4Spec);
+								  </script>
+							<h2>SANDAR - Developer</h2>
+							<p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa.</p>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+
+		</div>
+	</div>
+</section>
+
+<!-- blog section
+================================================== -->
+<section id="blog" class="paralla-section">
+	<div class="container">
+		<div class="row">
+
+			<h2>About This Visualization</h2>
+			<h4>Simple and Powerful tips</h4>
+
+			<div class="blog-masonry masonry-true">
+
+				<div class="post-masonry col-md-4 col-sm-6 wow fadeInUp">
+					<div class="blog-wrapper">
+						<img src="images/blog-img-1.jpg" class="img-responsive" alt="blog img">
+						<h3><a href="#">Narrative visualization method</a></h3>
+						<small>July 30, 2017</small>
+						<p>This project was created based on the hybrid interactive slideshow ordering technique. Guidance is provided on each slide, but the users are free to drill down and list some details or investigate some tangent that they might be interested on or they can choose just to continue.</p>
+					</div>
+				</div>
+				<div class="post-masonry col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+					<div class="blog-wrapper">
+						<img src="images/blog-img-2.jpg" class="img-responsive" alt="blog img">
+						<h3><a href="#">Scenes</a></h3>
+						<small>July 30, 2017</small>
+						<p>This project was created as slides thanks to the awesome vega light library, github and html in order to keep coherence and make it user-friendly. Each scene is a single chart with a specific goal related to the same subject and in a specific order to best convey the message. A double column layout is used in all the slides alternating the position of the text, this guarantees visual consistency. The same font is used throughout the project as well.</p>
+					</div>
+				</div>
+				<div class="post-masonry col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+					<div class="blog-wrapper">
+						<img src="images/blog-img-3.jpg" class="img-responsive" alt="blog img">
+						<h3><a href="#">Annotations</a></h3>
+						<small>July 30, 2017</small>
+						<p>All scene are of this narrative visualization built with annotations, parameters, and triggers. As you roll over the mouse on any of the bar chart provides annotation in the form of x-axis and y axis labels.  The titles and short description  guides reader to draw conclusion. The best example is bad car sales in USA does not mean the car sales are bad across the world. The car company should start targeting 2nd tier countries as well as there is huge upcoming market and that will help car companies to survive during bad time.</p>
+					</div>
+				</div>
+				<div class="post-masonry col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+					<div class="blog-wrapper">
+						<img src="images/blog-img-4.jpg" class="img-responsive" alt="blog img">
+						<h3><a href="#">Parameters</a></h3>
+						<small>July 30, 2017</small>
+						<p>The graphs are parameterized to show year over year trend for tier 1 and tier 2 countries at the same time the graphs are parameterized for given particular year, it shows the trend  the county car sales had from 2005 to 2016.</p>
+					</div>
+				</div>
+				<div class="post-masonry col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.8s">
+					<div class="blog-wrapper">
+						<img src="images/blog-img-5.jpg" class="img-responsive" alt="blog img">
+						<h3><a href="#">Triggers</a></h3>
+						<small>July 30, 2017</small>
+						<p>The triggers are used to highlight selection in red and gray out the remianing years in given bar graphs. To experience the trigger author will have to select any given year and rest all year are grayed out and graph only highlight year for each country in RED color.  The most interesting part is data used in all graphs are same and depending on needs the vega code has been written to satisfy  scenes, annotations, parameters, and triggers. .</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<!-- Contact section
+================================================== -->
+<section id="contact" class="parallax-section">
+	<div class="container">
+		<div class="row">
+			<!-- Contact detail section
+			================================================== -->
+			<!--<div class="col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="0.9s"> -->
+			<div class="col-md-offset-2 col-md-8">
+			
+				<div class="contact-detail">
+					<h2>Resources</h2>
+						<div>
+							<h4>About the author and purpose of project</h4>
+							<h3>The author</h3>
+							<p>This project was created by Prasanna Soni. This project is part of masters class CS 498: Data Visualization from University of Illinois Urbana-Champaign</p>
+							<h3>Disclaimer</h3>
+							<p>This is not a conclusive narrative, it is just meant to test abilities on vega and data visualization concepts applied. All the code that was modified as a base to create some of the elements of the visualization is under the MIT Open License and each reference is expose in the next column.</p>
+							<h4>Links</h4>
+							<p>http://www.tooplate.com/view/2077-modern-town</p>
+							<p>https://vega.github.io/editor/#/examples/vega-lite/overview_detail</p>
+						</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<!-- Footer section
+================================================== -->
+<footer>
+
+</footer>
+
+<!-- Javascript 
+================================================== -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/isotope.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/counter.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>
