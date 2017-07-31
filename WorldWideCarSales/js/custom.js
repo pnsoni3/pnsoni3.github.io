@@ -100,7 +100,7 @@ $(document).ready(function() {
     -----------------------------------------------*/
   $(document).ready(function() {
     $("#owl-testimonial").owlCarousel({
-      autoPlay: 8000,
+      autoPlay: 3000,
       singleItem: true,
     });
   });
