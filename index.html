@@ -1,7 +1,93 @@
 <!DOCTYPE html>
 <html>
+<head>
+ <link rel = "stylesheet" type = "text/css" href = "myStyle.css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vega/3.0.0-rc2/vega.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-lite/2.0.0-beta.10/vega-lite.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/vega-embed/3.0.0-beta.19/vega-embed.js"></script>
+ <link rel = "stylesheet" type = "text/css" href = "myStyle.css" />
+
+<style media="screen">
+    /* Add space between Vega-Embed links  */
+    .vega-actions a {
+      margin-right: 5px;
+    }
+	
+	.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+	
+	.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+            }
+
+     .button:hover {
+    background-color: #116b09; /* Green */
+    color: white;
+     }
+	
+	.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+	
+  </style>
+
+<title>Page Title</title>
+</head>
 <body>
-<h1>Hello World</h1>
-<p> I'm hosted with Github Pages.</p>
+
+
+
+<h1>Narrtive Visualization</h1>
+
+<h3>This narritive visualization charts are same as midterm but desined on different platform called hareku with vega, vega light and html coding.  It visualize the total worldwide sales for cars in 2016, and it provides trend for the car sales year over year in the last 10 years from 2005 - 2015. </h3>
+
+<h3>The interesting fact is, Car industry suffered a lot in the period of 2008 - 2009 however during this hard time as well China and some other countries had very good car sales.</h3>  
+
+<h3>This narrative visualization follows drill down story hybrid structure, in which author provides entire car sales for 2016 for tier 1 and tier 2 markets. As per drill down narrativsualization, the reader has choice to explore worldwide 2016 car sales  as that’s mostly is needed by business to understand current car sales numbers. The reader can also research the trend over period of 10 years for tier 1 market and tier 2 market. These multiple scene and screens are of narrative visualization built with annotations, parameters, and triggers. As you roll over the mouse on any of the bar chart provides annotation tooltip and information about county and no of cars sold in given year. There are mainly 3 parameters are used to design the charts, Year over year trend , no of cars sold for each country and it included as are part annotations. The graphs are parameterized to show year over year trend for tier 1 and tier 2 countries at the same time the charts are parameterised for given perticular year, it shows the trend  the county car sales had.  The triggers are used to highlight selection in red and gray out the remianing years in given bar graphs. To experience the trigger author will have to select any given year and rest all year are grayed out and graph only highlight year for each country in RED color.  The most interesting part is data used in all graphs are same and depending on needs the vega code has been written to satisfy  scenes, annotations, parameters, and triggers.</h3>
+
+<h3>The trend that showed in 2 bar charts is to differentiate and to focus the tier1 car sales market and tier 2 car sales market. After adding filter, reader can select countries and focus / target the sales and trend specific to country. In bar chart each year is given the same color for each country. This is to satisfy the rubric that the narrative visualization follow a template for visual consistency.  This also helps to compare the sales across the country on given particular year. User / business can select the year and that will only highlight how each country performed in that particular year as compared to other countries. The chart help to make great decision like during the hard time of car industry, which country was having good car sales.  Example when US was having big hard time for car industry in 2008 - 2009, the China and Germany outperformed. Actually Germany had one of the best car seller market as compared to its own other years. </h3>
+
+  
+<h3>There is lots and lots of information we can get out of this trend and I used all car sales data start from 2005 till 2015 for understanding this trend. Getting this classified data was very painful and very challenging and had to do lots of research from various car companies’ yearly publication and books, websites etc. The 2016 data I only added in Map to understand the total worldwide market share.  The one thing I learned in this exercise choosing type of chart, legends and designing correct graphs that can help to make decision is not that big deal than collecting the right data, cleaning it and and making it useful to generate the graphs and charts. Data collection, cleaning and making it ready to use is key to success </h3>
+
+
+Please click on one the button to continue your research on car industry….
+
+<a href="https://pnsoni3.github.io/Tier1.html" class="button">Tier 1 year over Year Trend : About the Visualization</a>
+<a href="https://pnsoni3.github.io/Vega-carsales.html" class="button">About the Visualization</a>
+
+
+
 </body>
-<html>
+</html>
